@@ -1,34 +1,52 @@
 .item {
     display: flex;
     justify-content: space-between;
-    border: 1px solid green;
+    align-items: center;
     padding: 10px;
+    box-shadow: #cd00cd66 0px 7px 29px 0px;
 
     p {
         font-size: 18px;
+        text-align: start;
+        width: 300px;
+        padding-left: 15px;
+        border-right: 1px solid #CD00CD;
     }
 
     button {
-        background-color: green;
+        background-color: unset;
         border: none;
         border-radius: 4px;
         padding: 5px;
 
-        &:hover {
-            background-color: rgb(3, 94, 3);
+        &:hover .icon {
+            fill: gray;
+
         }
     }
 }
 
-@media screen and (min-width: 320px) and (max-width: 499px) {
+@media screen and (min-width: 320px) and (max-width: 767px) {
     .item {
         display: flex;
         flex-direction: column;
         align-items: center;
         gap: 5px;
 
+        p {
+
+            text-align: center;
+
+            border-right: unset;
+        }
+
         button {
             width: 100px;
         }
     }
+}
+
+.icon {
+    fill: #CD00CD;
+
 }

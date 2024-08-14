@@ -12,10 +12,10 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
-body {
+/* body {
   margin: 0;
-  padding: 30px;
-}
+  padding: 20px;
+} */
 
 h1,
 h2,

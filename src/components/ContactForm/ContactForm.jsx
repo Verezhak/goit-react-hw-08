@@ -1,10 +1,13 @@
+
+
 import React from 'react';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
-import s from './ContactForm.module.css'
+import s from './ContactForm.module.css';
 import { useDispatch } from 'react-redux';
-import { addContacts } from '../../redux/contactsSlice';
-import { nanoid } from '@reduxjs/toolkit';
+import { addContact } from '../../redux/contacts/operations';
+
+
 
 const ContactForm = () => {
     const dispatch = useDispatch();
@@ -22,8 +25,8 @@ const ContactForm = () => {
     });
 
     const handleSubmit = (values, { resetForm }) => {
-        const newContact = { name: values.name, number: values.number, id: nanoid() }
-        dispatch(addContacts(newContact));
+        const newContact = { name: values.name, number: values.number }
+        dispatch(addContact(newContact));
         resetForm();
     };
 
@@ -36,12 +39,12 @@ const ContactForm = () => {
             >
                 <Form>
                     <label htmlFor="name">Name
-                        <Field name="name" type='search' id="name" autoComplete="name" />
+                        <Field name="name" type='text' id="name" autoComplete="name" />
                     </label>
                     <ErrorMessage name="name" component="div" className={s.error} />
 
                     <label htmlFor="number">Number
-                        <Field name="number" type='search' id="number" autoComplete="tel" />
+                        <Field name="number" type='text' id="number" autoComplete="tel" />
                     </label>
                     <ErrorMessage name="number" component="div" className={s.error} />
 
