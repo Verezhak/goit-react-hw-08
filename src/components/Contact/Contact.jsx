@@ -41,7 +41,7 @@ const Contact = ({ id, name, number }) => {
                 <p>{name}</p>
                 <p>{number}</p>
                 <div className={s.buttons}>
-                    <button onClick={handleUpdate} className={s.pen}><FaPencil className={s.icon} size="24" /></button>
+                    <button className={s.pen}><FaPencil className={s.icon} size="24" /></button>
                     <button onClick={openModal}><RiDeleteBin5Fill className={s.icon} size="24" /></button>
                 </div>
             </li>
