@@ -6,7 +6,7 @@ import * as Yup from 'yup';
 import s from './ContactForm.module.css';
 import { useDispatch } from 'react-redux';
 import { addContact } from '../../redux/contacts/operations';
-
+import toast, { Toaster } from 'react-hot-toast';
 
 
 const ContactForm = () => {
@@ -24,11 +24,21 @@ const ContactForm = () => {
             .required('Required')
     });
 
+
+    const notify = () => toast('Contact successfully added!');
+
     const handleSubmit = (values, { resetForm }) => {
         const newContact = { name: values.name, number: values.number }
-        dispatch(addContact(newContact));
+        dispatch(addContact(newContact))
+            .then(() => {
+                notify();
+            })
+            .catch((error) => {
+                toast.error('Failed to add contact.');
+            });
         resetForm();
     };
+
 
     return (
         <div className={s.formContainer}>
@@ -51,6 +61,7 @@ const ContactForm = () => {
                     <button type="submit">Add contact</button>
                 </Form>
             </Formik>
+            <Toaster />
         </div>
     );
 };

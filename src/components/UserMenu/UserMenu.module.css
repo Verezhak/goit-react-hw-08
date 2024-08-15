@@ -1,6 +1,5 @@
 .wrapper {
     display: flex;
-    gap: 30px;
     align-items: center;
 
     p {
@@ -8,16 +7,26 @@
         color: #CD00CD;
     }
 
+    .icon {
+        fill: rgb(90, 87, 87);
+        margin-left: 5px;
+    }
+
     button {
         display: flex;
         padding: 5px;
-        border: none;
+        margin-left: 30px;
         border-radius: 8px;
         background-color: rgba(110, 126, 145, 0.306);
+        border-top: none;
+        border-right: none;
+        border-left: none;
         color: white;
+        border-bottom: 1px solid white;
         font-size: 24px;
 
         &:hover {
+            border-bottom: 1px solid #CD00CD;
             color: #CD00CD;
         }
     }

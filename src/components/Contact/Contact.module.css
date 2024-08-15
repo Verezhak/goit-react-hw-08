@@ -3,21 +3,35 @@
     justify-content: space-between;
     align-items: center;
     padding: 10px;
+    border-radius: 8px;
     box-shadow: #cd00cd66 0px 7px 29px 0px;
 
     p {
         font-size: 18px;
         text-align: start;
-        width: 300px;
+        width: 250px;
         padding-left: 15px;
+        border-right: 1px solid #CD00CD;
+    }
+
+}
+
+.buttons {
+    display: flex;
+
+    .pen {
         border-right: 1px solid #CD00CD;
     }
 
     button {
         background-color: unset;
         border: none;
-        border-radius: 4px;
-        padding: 5px;
+        padding: 0 15px;
+
+        .icon {
+            fill: #CD00CD;
+
+        }
 
         &:hover .icon {
             fill: gray;
@@ -44,9 +58,4 @@
             width: 100px;
         }
     }
-}
-
-.icon {
-    fill: #CD00CD;
-
 }

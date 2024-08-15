@@ -52,7 +52,7 @@ const RegisterForm = () => {
                         <Field name="password" type="password" id="password" autoComplete="password" />
                     </label>
                     <ErrorMessage name="password" component="div" className={s.error} />
-                    <button type="submit">Register</button>
+                    <button type="submit">Sign up</button>
                 </Form>
             </Formik>
         </div>
