@@ -7,8 +7,9 @@ import { useDispatch, useSelector } from 'react-redux';
 import { selectIsRefreshing } from './redux/auth/selectors';
 import { RestrictedRoute } from './RestrictedRoute';
 import { PrivateRoute } from './PrivateRoute';
-import Layout from './Layout';
+
 import { ThreeCircles } from 'react-loader-spinner';
+import Layout from './components/Layout/Layout';
 
 
 const HomePage = lazy(() => import('./pages/HomePage/HomePage'));
