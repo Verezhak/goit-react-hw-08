@@ -6,10 +6,6 @@ import { RiDeleteBin5Fill } from "react-icons/ri";
 import toast, { Toaster } from 'react-hot-toast';
 import Modal from '../Modal/Modal';
 import { useState } from 'react';
-import { FaPencil } from 'react-icons/fa6';
-
-
-
 
 const Contact = ({ id, name, number }) => {
     const dispatch = useDispatch();
@@ -40,10 +36,7 @@ const Contact = ({ id, name, number }) => {
             <li className={s.item}>
                 <p>{name}</p>
                 <p>{number}</p>
-                <div className={s.buttons}>
-                    <button className={s.pen}><FaPencil className={s.icon} size="24" /></button>
-                    <button onClick={openModal}><RiDeleteBin5Fill className={s.icon} size="24" /></button>
-                </div>
+                <button onClick={openModal}><RiDeleteBin5Fill className={s.icon} size="24" /></button>
             </li>
             <Toaster />
             <Modal

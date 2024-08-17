@@ -14,19 +14,11 @@
         border-right: 1px solid #CD00CD;
     }
 
-}
-
-.buttons {
-    display: flex;
-
-    .pen {
-        border-right: 1px solid #CD00CD;
-    }
-
     button {
         background-color: unset;
         border: none;
         padding: 0 15px;
+        transition: fill 250ms ease;
 
         .icon {
             fill: #CD00CD;
@@ -38,7 +30,10 @@
 
         }
     }
+
 }
+
+
 
 @media screen and (min-width: 320px) and (max-width: 767px) {
     .item {

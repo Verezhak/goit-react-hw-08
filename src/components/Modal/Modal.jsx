@@ -1,5 +1,5 @@
 
-import s from './Modal.module.css'; // Додайте власні стилі для модального вікна
+import s from './Modal.module.css';
 
 const Modal = ({ isOpen, onClose, onConfirm }) => {
     if (!isOpen) return null;

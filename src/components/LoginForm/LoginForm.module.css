@@ -6,8 +6,12 @@
     max-width: 700px;
     padding: 20px;
 
+
     form {
         width: 100%;
+        padding: 20px 10px;
+        border-radius: 8px;
+        box-shadow: #cd00cd66 0px 7px 29px 0px;
 
     }
 
@@ -40,13 +44,30 @@
         margin-top: 10px;
         border-radius: 8px;
         color: white;
+        transition: color 250ms ease;
 
         &:hover {
             color: #CD00CD;
         }
     }
 
+    p {
+        font-size: 18px;
+        margin-top: 20px;
+        color: gray;
 
+        a {
+            padding: 5px;
+            border-radius: 8px;
+            color: #CD00CD;
+            transition: color 250ms ease;
+
+            &:hover {
+                color: white;
+                background-color: #58c8dc;
+            }
+        }
+    }
 }
 
 .error {

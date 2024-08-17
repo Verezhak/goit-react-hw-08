@@ -4,7 +4,7 @@ import s from './LoginForm.module.css';
 import { useDispatch, useSelector } from "react-redux";
 import { logIn } from "../../redux/auth/operations";
 import { selectIsLoggedIn } from "../../redux/auth/selectors";
-import { Navigate } from "react-router-dom";
+import { Link, Navigate } from "react-router-dom";
 
 
 const LoginForm = () => {
@@ -48,6 +48,9 @@ const LoginForm = () => {
                     <button type="submit">
                         Sign in
                     </button>
+                    <p>
+                        You don't have account?<Link to='/register'>Sign up!</Link>
+                    </p>
                 </Form>
             </Formik>
 

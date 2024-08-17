@@ -4,7 +4,7 @@ import s from './RegisterForm.module.css';
 import { useDispatch, useSelector } from "react-redux";
 import { register } from "../../redux/auth/operations";
 import { selectIsLoggedIn } from "../../redux/auth/selectors";
-import { Navigate } from "react-router-dom";
+import { Link, Navigate } from "react-router-dom";
 
 
 const RegisterForm = () => {
@@ -53,6 +53,9 @@ const RegisterForm = () => {
                     </label>
                     <ErrorMessage name="password" component="div" className={s.error} />
                     <button type="submit">Sign up</button>
+                    <p>
+                        You already have account?<Link to='/login'>Sign in!</Link>
+                    </p>
                 </Form>
             </Formik>
         </div>

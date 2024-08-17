@@ -1,15 +1,16 @@
 
 import 'modern-normalize';
-import s from './App.module.css';
+
 import { Suspense, lazy, useEffect } from 'react';
 import { Route, Routes } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { selectIsRefreshing } from './redux/auth/selectors';
-import { RestrictedRoute } from './RestrictedRoute';
-import { PrivateRoute } from './PrivateRoute';
-
-import { ThreeCircles } from 'react-loader-spinner';
 import Layout from './components/Layout/Layout';
+import { refreshUser } from './redux/auth/operations';
+import Loader from './components/Loader/Loader';
+import { PrivateRoute } from './routes/PrivateRoute';
+import { RestrictedRoute } from './routes/RestrictedRoute';
+
 
 
 const HomePage = lazy(() => import('./pages/HomePage/HomePage'));
@@ -19,48 +20,41 @@ const LoginPage = lazy(() => import('./pages/LoginPage/LoginPage'));
 const NotFoundPage = lazy(() => import('./pages/NotFoundPage/NotFoundPage'));
 
 const App = () => {
-  // const dispatch = useDispatch();
-  // const { isRefreshing } = useSelector(selectIsRefreshing);
+  const dispatch = useDispatch();
+  const { isRefreshing } = useSelector(selectIsRefreshing);
 
-  // useEffect(() => {
-  //   dispatch(refreshUser());
-  // }, [dispatch]);
-  // return isRefreshing ? (
-  //   <b>Refreshing user...</b>
-  // ) : (
-  return (
-    <Suspense fallback={<div className={s.loader}>
-      <ThreeCircles
-        visible={true}
-        height="50"
-        width="50"
-        color="#CD00CD"
-        ariaLabel="three-circles-loading"
-        wrapperStyle={{}
-        }
-        wrapperClass=""
-      />
-    </div>}>
+  useEffect(() => {
+    dispatch(refreshUser());
+  }, [dispatch]);
+  return isRefreshing ? (
+    <Loader />
+  ) : (
+    <Suspense fallback={<Loader />}>
       <Routes>
         <Route path='/' element={<Layout />}>
           <Route index element={<HomePage />} />
           <Route
             path="contacts"
-            element={
-              <PrivateRoute redirectTo="/login" component={<ContactsPage />} />
-            }
+            element={<PrivateRoute>
+              <ContactsPage />
+            </PrivateRoute>}
+
           />
           <Route
             path="register"
             element={
-              <RestrictedRoute redirectTo="/contacts" component={<RegistrationPage />} />
+              <RestrictedRoute>
+                <RegistrationPage />
+              </RestrictedRoute>
             }
           />
 
           <Route
             path="login"
             element={
-              <RestrictedRoute redirectTo="/contacts" component={<LoginPage />} />
+              <RestrictedRoute>
+                <LoginPage />
+              </RestrictedRoute>
             }
           />
           <Route path='*' element={<NotFoundPage />} />
