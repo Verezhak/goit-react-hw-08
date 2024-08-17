@@ -5,8 +5,8 @@ const Loader = () => {
         <div className={s.loader}>
             <ThreeCircles
                 visible={true}
-                height="50"
-                width="50"
+                height="120"
+                width="120"
                 color="#CD00CD"
                 ariaLabel="three-circles-loading"
                 wrapperStyle={{}
