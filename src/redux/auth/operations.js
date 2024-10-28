@@ -6,7 +6,7 @@ export const register = createAsyncThunk(
     'auth/register',
     async (credentials, thunkAPI) => {
         try {
-            const { data } = await goitApi.post('users/register', credentials);
+            const { data } = await goitApi.post('auth/register', credentials);
             console.log(data);
             setAuthHeader(data.token);
             return data;
@@ -21,7 +21,7 @@ export const logIn = createAsyncThunk(
     'auth/login',
     async (credentials, thunkAPI) => {
         try {
-            const { data } = await goitApi.post('users/login', credentials);
+            const { data } = await goitApi.post('auth/login', credentials);
             setAuthHeader(data.token);
             return data;
         } catch (error) {
