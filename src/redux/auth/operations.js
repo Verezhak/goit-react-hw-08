@@ -1,12 +1,12 @@
 
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import { clearAuthHeader, goitApi, setAuthHeader } from '../../config/goitApi';
-
+const baseUrl = 'https://nodejs-hw-mongodb-ztyo.onrender.com'
 export const register = createAsyncThunk(
     'auth/register',
     async (credentials, thunkAPI) => {
         try {
-            const { data } = await goitApi.post('users/signup', credentials);
+            const { data } = await baseUrl.post('users/signup', credentials);
             setAuthHeader(data.token);
             return data;
         } catch (error) {
