@@ -1,6 +1,15 @@
+// {
+//     "scripts": {
+//         "build": "react-scripts build",
+//         "start": "react-scripts start"
+//     }
+// }
+
 {
-    "scripts": {
-        "build": "react-scripts build",
-        "start": "react-scripts start"
-    }
+    "rewrites": [
+        {
+            "source": "/(.*)",
+            "destination": "/"
+        }
+    ]
 }
