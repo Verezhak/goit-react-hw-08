@@ -1,7 +1,10 @@
 import axios from "axios";
 
+// export const goitApi = axios.create({
+//     baseURL: 'https://connections-api.goit.global/',
+// })
 export const goitApi = axios.create({
-    baseURL: 'https://connections-api.goit.global/',
+    baseURL: 'https://nodejs-hw-mongodb-ztyo.onrender.com',
 })
 
 
