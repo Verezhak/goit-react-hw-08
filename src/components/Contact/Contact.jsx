@@ -12,16 +12,27 @@ const Contact = ({ id, name, number }) => {
     const [isModalOpen, setModalOpen] = useState(false);
 
     const notify = () => toast('The contact has been deleted!');
-    const handleDelete = () => {
-        dispatch(deleteContact(id))
-            .then(() => {
-                notify();
-            })
-            .catch((error) => {
-                toast.error('Failed to delete contact.');
-            });
-        setModalOpen(false);
+
+    const handleDelete = async () => {
+        try {
+            await dispatch(deleteContact(id)).unwrap();
+            notify();
+            setModalOpen(false);
+        } catch (error) {
+            toast.error('Failed to delete contact.');
+        }
     };
+
+    // const handleDelete = () => {
+    //     dispatch(deleteContact(id))
+    //         .then(() => {
+    //             notify();
+    //         })
+    //         .catch((error) => {
+    //             toast.error('Failed to delete contact.');
+    //         });
+    //     setModalOpen(false);
+    // };
 
     const openModal = () => {
         setModalOpen(true);
@@ -49,4 +60,3 @@ const Contact = ({ id, name, number }) => {
 };
 
 export default Contact;
-

@@ -1,6 +1,4 @@
 
-
-import React from 'react';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
 import s from './ContactForm.module.css';
@@ -27,17 +25,28 @@ const ContactForm = () => {
 
     const notify = () => toast('Contact successfully added!');
 
-    const handleSubmit = (values, { resetForm }) => {
-        const newContact = { name: values.name, number: values.number }
-        dispatch(addContact(newContact))
-            .then(() => {
-                notify();
-            })
-            .catch((error) => {
-                toast.error('Failed to add contact.');
-            });
-        resetForm();
+    const handleSubmit = async (values, { resetForm }) => {
+        const newContact = { name: values.name, number: values.number };
+        try {
+            await dispatch(addContact(newContact)).unwrap();
+            notify();
+            resetForm();
+        } catch (error) {
+            toast.error('Failed to add contact.');
+        }
     };
+
+    // const handleSubmit = (values, { resetForm }) => {
+    //     const newContact = { name: values.name, number: values.number }
+    //     dispatch(addContact(newContact))
+    //         .then(() => {
+    //             notify();
+    //         })
+    //         .catch((error) => {
+    //             toast.error('Failed to add contact.');
+    //         });
+    //     resetForm();
+    // };
 
 
     return (

@@ -18,3 +18,4 @@ export const setAuthHeader = (token) => {
 export const clearAuthHeader = () => {
     goitApi.defaults.headers.common.Authorization = '';
 };
+

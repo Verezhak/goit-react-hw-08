@@ -2,9 +2,10 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import { goitApi } from "../../config/goitApi";
 
-export const fetchContacts = createAsyncThunk('contacts/fetchAll', async (_, thunkAPI) => {
+export const fetchContacts = createAsyncThunk('contacts', async (_, thunkAPI) => {
     try {
         const { data } = await goitApi.get('contacts');
+        console.log(data);
         return data;
     } catch (error) {
         return thunkAPI.rejectWithValue(error.message);

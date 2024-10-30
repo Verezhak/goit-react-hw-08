@@ -1,4 +1,3 @@
-
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import { clearAuthHeader, goitApi, setAuthHeader } from '../../config/goitApi';
 
@@ -6,8 +5,7 @@ export const register = createAsyncThunk(
     'auth/register',
     async (credentials, thunkAPI) => {
         try {
-            const { data } = await goitApi.post('auth/register', credentials);
-            console.log(data);
+            const { data } = await goitApi.post('users/signup', credentials);
             setAuthHeader(data.token);
             return data;
         } catch (error) {
@@ -21,7 +19,7 @@ export const logIn = createAsyncThunk(
     'auth/login',
     async (credentials, thunkAPI) => {
         try {
-            const { data } = await goitApi.post('auth/login', credentials);
+            const { data } = await goitApi.post('users/login', credentials);
             setAuthHeader(data.token);
             return data;
         } catch (error) {
